@@ -6,9 +6,11 @@ class App extends React.Component {
     keys: ["Q", "W", "E", "A", "S", "D", "Z", "X", "C"],
   };
   render() {
+    console.log("htell");
+    const { keys } = this.state;
     return (
       <div id="drum-machine">
-        <div id="display">
+        <div id="display" className="display">
           {keys.map((key, idx) => (
             <Box text={key} key={idx} />
           ))}
@@ -17,7 +19,7 @@ class App extends React.Component {
     );
   }
 }
-const app = () => <div>Hello</div>;
 
-const Box = () => <div className="box">{props.text}</div>;
+const Box = (props) => <div className="box">{props.text}</div>;
+
 export default App;
