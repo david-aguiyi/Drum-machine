@@ -11,6 +11,10 @@ const App = (props) => (
   </div>
 );
 
-const Box = (props) => <div className="box">{props.text}</div>;
+class Box extends React.Component {
+  render() {
+    return <div className="box">{props.text}</div>;
+  }
+}
 
 export default App;
