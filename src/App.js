@@ -4,7 +4,7 @@ import React from "react";
 const keys = ["Q", "W", "E", "A", "S", "D", "Z", "X", "C"];
 
 const App = (props) => (
-  <div id="display" className=" m-auto display">
+  <div id="display" className="container display ">
     {keys.map((key, idx) => (
       <Box text={key} key={idx} />
     ))}
@@ -13,7 +13,7 @@ const App = (props) => (
 
 class Box extends React.Component {
   render() {
-    return <div className="box">{props.text}</div>;
+    return <div className="box">{this.props.text}</div>;
   }
 }
 
