@@ -80,6 +80,9 @@ document.addEventListener("keydown", (e) => {
   const id = e.key.toUpperCase();
   const audio = document.getElementById(id);
   if (audio) {
+    const parent = audio.parentNode;
+    parent.classList.add("active");
+    console.log("success");
     audio.play();
   }
 });
