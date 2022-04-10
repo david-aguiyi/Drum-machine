@@ -76,5 +76,11 @@ class Box extends React.Component {
     );
   }
 }
-
+document.addEventListener("keydown", (e) => {
+  const id = e.key.toUpperCase();
+  const audio = document.getElementById(id);
+  if (audio) {
+    audio.play();
+  }
+});
 export default App;
