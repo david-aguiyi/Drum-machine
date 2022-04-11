@@ -80,6 +80,7 @@ document.addEventListener("keydown", (e) => {
   const id = e.key.toUpperCase();
   const audio = document.getElementById(id);
   if (audio) {
+    audio.currentTime = 0;
     const parent = audio.parentNode;
     parent.classList.add("active");
     console.log("success");
