@@ -51,6 +51,7 @@ const sounds = [
 
 const App = () => (
   <div id="display" className="container display ">
+    <h1>Play a sound</h1>
     {sounds.map((sound, idx) => (
       <DrumPad text={sound.key} key={idx} audio={sound.mp3} />
     ))}
