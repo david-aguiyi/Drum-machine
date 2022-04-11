@@ -84,6 +84,10 @@ document.addEventListener("keydown", (e) => {
     parent.classList.add("active");
     console.log("success");
     audio.play();
+
+    audio.addEventListener("ended", () => {
+      parent.classList.remove("active");
+    });
   }
 });
 export default App;
