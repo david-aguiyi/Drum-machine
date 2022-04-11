@@ -13,12 +13,12 @@ body {
   width: 350px;
   border-radius: 4px;
   background-color: white;
-  margin-top: 200px;
+  margin-top: 20px;
   justify-content: center;
   align-items: center;
 }
 
-.box {
+.drum-pad {
   border: 2px solid rgb(36, 35, 35);
   border-radius: 5px;
   display: flex;
@@ -33,7 +33,7 @@ body {
   user-select: none;
   transition: all 500ms ease-in-out;
 }
-.box:active {
+.drum-pad:active {
   opacity: 0.8;
   transform: scale(1.2) rotate(20deg);
 }
