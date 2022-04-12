@@ -57,7 +57,7 @@ const App = () => (
         text={sound.key}
         key={idx}
         audio={sound.mp3}
-        text1={sound.song}
+        songId={sound.song}
       />
     ))}
   </div>
@@ -66,8 +66,8 @@ const App = () => (
 class DrumPad extends React.Component {
   constructor(props) {
     super(props);
-    this.audio = React.createRef();
-    this.text1 = React.createRef();
+    this.audioId();
+    this.song();
   }
   playSound = () => {
     console.log("success");
@@ -78,18 +78,27 @@ class DrumPad extends React.Component {
     const display = parent.parentNode;
     display.querySelector("h1").innerText = id;
   };
+  song() {
+    this.songId = React.createRef();
+  }
+
+  audioId() {
+    this.audio = React.createRef();
+  }
+
   render() {
-    const { text, audio, text1 } = this.props;
+    const { text, audio, songId } = this.props;
     return (
       <div className="drum-pad" onClick={this.playSound} id={`drum-${text}`}>
         {text}
-        <audio src={audio} ref={this.audio} className="clip" id={text1} />
+        <audio src={audio} ref={this.audio} className="clip" id={songId} />
       </div>
     );
   }
 }
 document.addEventListener("keydown", (e) => {
-  const id = e.key.toUpperCase();
+  const id = keyFunction(e);
+  console.log("success");
   const audio = document.getElementById(id);
   if (audio) {
     audio.currentTime = 0;
@@ -104,3 +113,6 @@ document.addEventListener("keydown", (e) => {
   }
 });
 export default App;
+function keyFunction(e) {
+  return e.key.toUpperCase();
+}
