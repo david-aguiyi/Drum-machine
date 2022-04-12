@@ -53,7 +53,12 @@ const App = () => (
   <div id="display" className="container display ">
     <h1>Play a sound</h1>
     {sounds.map((sound, idx) => (
-      <DrumPad text={sound.key} key={idx} audio={sound.mp3} />
+      <DrumPad
+        text={sound.key}
+        key={idx}
+        audio={sound.mp3}
+        text1={sound.song}
+      />
     ))}
   </div>
 );
@@ -62,17 +67,23 @@ class DrumPad extends React.Component {
   constructor(props) {
     super(props);
     this.audio = React.createRef();
+    this.text1 = React.createRef();
   }
   playSound = () => {
     console.log("success");
     this.audio.current.play();
+    const id = this.audio.current.id;
+    const parent = this.audio.current.parentNode;
+    parent.classList.add("active");
+    const display = parent.parentNode;
+    display.querySelector("h1").innerText = id;
   };
   render() {
-    const { text, audio } = this.props;
+    const { text, audio, text1 } = this.props;
     return (
       <div className="drum-pad" onClick={this.playSound} id={`drum-${text}`}>
         {text}
-        <audio src={audio} ref={this.audio} className="clip" id={text} />
+        <audio src={audio} ref={this.audio} className="clip" id={text1} />
       </div>
     );
   }
