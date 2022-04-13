@@ -69,14 +69,15 @@ class DrumPad extends React.Component {
     this.audioId();
     this.song();
   }
+
   playSound = () => {
     console.log("success");
     this.audio.current.play();
-    const id = this.audio.current.id;
+    const song = this.audio.current.id;
     const parent = this.audio.current.parentNode;
     parent.classList.add("active");
     const display = parent.parentNode;
-    display.querySelector("h1").innerText = id;
+    display.querySelector("h1").innerText = song;
   };
   song() {
     this.songId = React.createRef();
@@ -89,22 +90,26 @@ class DrumPad extends React.Component {
   render() {
     const { text, audio, songId } = this.props;
     return (
-      <div className="drum-pad" onClick={this.playSound} id={`drum-${text}`}>
+      <button
+        className="drum-pad"
+        onClick={this.playSound}
+        id={`drum-${text}`}
+        ref={this.songId}
+      >
         {text}
-        <audio src={audio} ref={this.audio} className="clip" id={songId} />
-      </div>
+        <audio src={audio} ref={this.audio} className="clip" id={text} />
+      </button>
     );
   }
 }
+export default App;
 document.addEventListener("keydown", (e) => {
-  const id = keyFunction(e);
-  console.log("success");
+  const id = e.key.toUpperCase();
   const audio = document.getElementById(id);
   if (audio) {
     audio.currentTime = 0;
     const parent = audio.parentNode;
     parent.classList.add("active");
-    console.log("success");
     audio.play();
 
     audio.addEventListener("ended", () => {
@@ -112,7 +117,3 @@ document.addEventListener("keydown", (e) => {
     });
   }
 });
-export default App;
-function keyFunction(e) {
-  return e.key.toUpperCase();
-}
