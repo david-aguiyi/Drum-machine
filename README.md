@@ -1,6 +1,6 @@
 ## Build a Drum Machine
 Objective: Build a [CodePen.io] app that is functionally similar to this:[https://codepen.io/freeCodeCamp/full/MJyNMd].
-![Image][file:///home/david/Pictures/Screenshot%20from%202022-04-29%2011-13-01.png]
+![Screenshot from 2022-04-29 11-13-01](https://user-images.githubusercontent.com/87682085/165931531-878cffbe-0d25-42cf-8094-ed88fb8dfb4a.png)
 
 Fulfill the below user stories and get all of the tests to pass. Give it your own personal style.
 
